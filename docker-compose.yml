@@ -43,8 +43,8 @@ services:
     depends_on:
       - mongo
       - redis
-    # volumes:
-    #   - "/var/crawlab/log:/var/logs/crawlab" # log persistent 日志持久化
+    volumes:
+      - "./docker/crawlab/logs:/var/logs/crawlab" # log persistent 日志持久化
   worker:
     image: tikazyq/crawlab:latest
     container_name: worker
@@ -55,24 +55,24 @@ services:
     depends_on:
       - mongo
       - redis
-    # volumes:
-    #   - "/var/crawlab/log:/var/logs/crawlab" # log persistent 日志持久化
+    volumes:
+      - "./docker/crawlab/logs:/var/logs/crawlab" # log persistent 日志持久化
   mongo:
     image: mongo:latest
     restart: always
     # environment:
     #   MONGO_INITDB_ROOT_USERNAME: username
     #   MONGO_INITDB_ROOT_PASSWORD: password
-    # volumes:
-    #   - "/opt/crawlab/mongo/data/db:/data/db"  # make data persistent 持久化
+    volumes:
+      - "./docker/mongo/data/db:/data/db"  # make data persistent 持久化
     # ports:
     #   - "27017:27017"  # expose port to host machine 暴露接口到宿主机
   redis:
     image: redis:latest
     restart: always
     # command: redis-server --requirepass "password" # set redis password 设置 Redis 密码
-    # volumes:
-    #   - "/opt/crawlab/redis/data:/data"  # make data persistent 持久化
+    volumes:
+      - "./docker/redis/data:/data"  # make data persistent 持久化
     # ports:
     #   - "6379:6379"  # expose port to host machine 暴露接口到宿主机
   # splash:  # use Splash to run spiders on dynamic pages

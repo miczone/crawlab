@@ -1,0 +1,3 @@
+crawler/logs
+mongo/data
+redis/data
