@@ -39,7 +39,7 @@ services:
       # CRAWLAB_NOTIFICATION_MAIL_SMTP_USER: username  # SMTP username SMTP 用户名
       # CRAWLAB_NOTIFICATION_MAIL_SMTP_PASSWORD: password  # SMTP password SMTP 密码
     ports:
-      - "8080:8080" # frontend port mapping 前端端口映射
+      - "10010:8080" # frontend port mapping 前端端口映射
     depends_on:
       - mongo
       - redis
@@ -66,7 +66,7 @@ services:
     volumes:
       - "./docker/mongo/data/db:/data/db"  # make data persistent 持久化
     ports:
-      - "10010:27017"  # expose port to host machine 暴露接口到宿主机
+      - "10020:27017"  # expose port to host machine 暴露接口到宿主机
   redis:
     image: redis:latest
     restart: always
@@ -74,7 +74,7 @@ services:
     volumes:
       - "./docker/redis/data:/data"  # make data persistent 持久化
     ports:
-      - "10020:6379"  # expose port to host machine 暴露接口到宿主机
+      - "10030:6379"  # expose port to host machine 暴露接口到宿主机
   # splash:  # use Splash to run spiders on dynamic pages
   #   image: scrapinghub/splash
   #   container_name: splash

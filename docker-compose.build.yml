@@ -14,7 +14,7 @@ services:
       CRAWLAB_MONGO_HOST: "mongo" 
       CRAWLAB_REDIS_ADDRESS: "redis"
     ports:
-      - "8080:8080"
+      - "10010:8080"
     depends_on:
       - mongo
       - redis
@@ -40,11 +40,11 @@ services:
     volumes:
       - "./docker/mongo/data/db:/data/db"
     ports:
-      - "10010:27017"
+      - "10020:27017"
   redis:
     image: redis:latest
     restart: always
     volumes:
       - "./docker/redis/data:/data"  # make data persistent 持久化
     ports:
-      - "10020:6379"
+      - "10030:6379"
