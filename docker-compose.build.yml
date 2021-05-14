@@ -7,7 +7,7 @@ services:
   master:
     build:
       context: ./
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.build
     container_name: master
     environment:
       CRAWLAB_SERVER_MASTER: "Y"
@@ -23,7 +23,7 @@ services:
   worker:
     build:
       context: ./
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.build
     container_name: worker
     environment:
       CRAWLAB_SERVER_MASTER: "N"
