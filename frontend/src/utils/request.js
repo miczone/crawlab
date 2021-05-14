@@ -57,7 +57,7 @@ const errorHandler = (error) => {
     }
   } else if (!response) {
     Message({
-      message: `您的网络发生异常，无法连接服务器`,
+      message: `Your network is abnormal and you cannot connect to the server`,
       type: 'error',
       duration: 5 * 1000
     })
